@@ -1,0 +1,567 @@
+# Amrit Palace — Product Vision
+
+## 1. The Vision
+
+Amrit Palace is a real hospitality destination in Lohardaga, Jharkhand — a place where people come to stay, dine, celebrate, meet, gather and create meaningful moments.
+
+This project is about translating that physical experience into a modern digital experience.
+
+The goal is to create a website and hospitality platform that feels like a genuine digital extension of Amrit Palace rather than a conventional hotel website.
+
+The experience should immediately communicate:
+
+> **A Place for Every Occasion.**
+
+A visitor should be able to discover Amrit Palace visually, understand what the property offers, explore its spaces and experiences, plan a stay or event, and eventually interact with the hotel through a connected digital platform.
+
+The website is therefore both:
+
+- a cinematic public-facing brand experience
+- the front door to a functional hospitality platform
+
+The result should feel intentional, contemporary, memorable and genuinely useful.
+
+---
+
+# 2. What We Are Building
+
+Amrit Palace will eventually become a connected hospitality system consisting of multiple experiences built around one shared platform.
+
+### Public Website
+
+The public-facing experience introduces Amrit Palace and allows visitors to explore:
+
+- the property
+- rooms
+- dining
+- celebrations
+- weddings
+- birthdays
+- meetings and conferences
+- other events and services
+- the brand story
+- contact and location information
+
+The public website should create desire and confidence before asking the visitor to take action.
+
+---
+
+### Guest Experience
+
+Guests should eventually have their own digital space where they can:
+
+- create an account
+- authenticate using their phone and OTP
+- view their stay
+- manage bookings
+- explore and order food
+- view order status
+- see accumulated charges
+- view their bill
+- complete checkout and payment
+- manage relevant profile information
+
+The guest experience should feel like a natural continuation of the public website rather than a completely unrelated application.
+
+---
+
+### Chef Experience
+
+The kitchen team should have a dedicated operational interface for:
+
+- receiving food orders
+- accepting orders
+- preparing orders
+- marking orders ready
+- marking orders delivered
+- managing kitchen activity
+- recording ingredient consumption
+- viewing relevant inventory information
+
+The kitchen experience should prioritize speed, clarity and practical usability.
+
+---
+
+### Admin Experience
+
+The hotel administration should eventually have a central operational interface for:
+
+- bookings
+- guests
+- food orders
+- menu management
+- rooms
+- services and events
+- payments
+- inventory
+- staff
+- reports
+- operational insights
+
+The admin experience should turn the platform into a useful management system rather than simply being a collection of dashboards.
+
+---
+
+# 3. The Core Idea
+
+The entire public experience is built around four fundamental ideas:
+
+## STAY
+
+A comfortable place for guests to rest and continue their journey.
+
+Amrit Palace currently offers its actual guest-room experience as a comfortable room with features such as air conditioning, a master bed and other practical guest amenities.
+
+The digital experience should represent the room honestly while presenting it beautifully.
+
+---
+
+## DINE
+
+Food is part of the hospitality experience.
+
+Guests should be able to discover the available menu, understand dishes, see pricing and eventually order food through the platform.
+
+Dining should feel connected to the stay rather than existing as an isolated restaurant feature.
+
+---
+
+## CELEBRATE
+
+Amrit Palace provides a place for people to celebrate meaningful occasions.
+
+This includes experiences such as:
+
+- weddings
+- birthdays
+- anniversaries
+- ceremonies
+- private celebrations
+- social gatherings
+
+The digital experience should communicate the emotion and possibility of these occasions primarily through strong visual storytelling.
+
+---
+
+## MEET
+
+Amrit Palace is also a place where people come together professionally.
+
+The experience should communicate possibilities such as:
+
+- corporate meetings
+- conferences
+- business gatherings
+- organized events
+
+This creates an important contrast within the brand:
+
+A place can host a joyful family celebration in one moment and a focused professional gathering in another.
+
+That versatility is part of the identity.
+
+---
+
+# 4. The Public Website Experience
+
+The public website should feel like a cinematic journey.
+
+The visitor should not feel as though they are simply scrolling through a collection of hotel sections.
+
+Instead, the page should gradually reveal the world of Amrit Palace.
+
+A possible emotional progression is:
+
+**ARRIVE → DISCOVER → STAY → DINE → CELEBRATE → MEET → CONNECT**
+
+The exact implementation should be determined by the design and engineering process.
+
+The important objective is that every section contributes to the story.
+
+---
+
+# 5. The Brand Film
+
+A major visual element of the landing experience is the cinematic Amrit Palace film.
+
+The current assembled film is approximately 33 seconds long and contains a sequence built from multiple cinematic clips.
+
+The visual journey explores:
+
+- arrival at Amrit Palace
+- entering the property
+- discovering the interior
+- the banquet/event environment
+- Indian wedding celebrations
+- family celebrations
+- children's birthday celebrations
+- professional meetings
+- the identity of Amrit Palace
+
+The film eventually resolves into a dedicated Amrit Palace brand moment:
+
+**AMRIT PALACE**
+
+**A PLACE FOR EVERY OCCASION**
+
+This film should be treated as an important piece of the website's storytelling system.
+
+It should not simply exist as decorative background footage.
+
+The implementation should make the cinematic footage and the interface feel like two layers of the same experience:
+
+**the film creates emotion; the interface creates clarity and action.**
+
+---
+
+# 6. Visual Philosophy
+
+The visual direction should feel contemporary, cinematic and premium while remaining authentic to the actual Amrit Palace property.
+
+The experience should be driven heavily by:
+
+- photography
+- cinematic video
+- visual storytelling
+- typography
+- composition
+- movement
+- depth
+- interaction
+- carefully designed transitions
+- meaningful micro-interactions
+
+Copy should support the visuals rather than compete with them.
+
+The design should allow large imagery and typography to create moments of visual breathing room.
+
+Whitespace should be treated as part of the composition.
+
+Motion should have purpose.
+
+When animation, scroll-linked movement, parallax, image sequencing, 3D or WebGL can meaningfully improve the experience, the implementation should consider them intelligently.
+
+Technology should serve the experience.
+
+---
+
+# 7. Glass as an Interface Language
+
+The public experience will use a refined glassmorphism language.
+
+The cinematic footage can contain rich colors, warm golden lighting, wedding reds, cool exterior tones, floral colors and other visual variation.
+
+The interface should therefore provide a calmer visual layer above that footage.
+
+Glass surfaces should feel refined and architectural:
+
+- translucent
+- elegant
+- tactile
+- restrained
+- spatial
+- readable
+
+The glass interface should create separation between the moving visual world and the interactive layer while still allowing the underlying environment to remain visible.
+
+The overall system should feel cohesive even when the underlying footage changes dramatically.
+
+The interface should feel like it belongs to Amrit Palace rather than feeling like a generic glassmorphism UI kit.
+
+---
+
+# 8. Brand Personality
+
+Amrit Palace should feel:
+
+- welcoming
+- elegant
+- warm
+- celebratory
+- trustworthy
+- contemporary
+- human
+- versatile
+
+The experience should balance sophistication with familiarity.
+
+It should feel appropriate for a family arriving for a celebration, a guest staying overnight, a couple hosting a wedding, a child celebrating a birthday and professionals attending a meeting.
+
+The brand should feel aspirational without becoming disconnected from the real property.
+
+---
+
+# 9. Authenticity
+
+Amrit Palace is a real place.
+
+The digital experience should therefore be grounded in the actual property, its spaces, its services and its real hospitality offering.
+
+Real assets should be prioritized whenever available.
+
+Generated or enhanced visual assets can be used to support the experience when appropriate, but the resulting experience should remain believable and connected to the real Amrit Palace.
+
+The website should make the real property look its best through excellent presentation rather than inventing an entirely different property.
+
+---
+
+# 10. Cultural Context
+
+Amrit Palace operates in India, and its celebrations should feel culturally natural.
+
+Indian weddings, family celebrations and other occasions should be represented with authentic Indian visual language, people, clothing, décor and social interactions.
+
+The wedding experience should communicate togetherness, family, celebration, tradition and joy.
+
+Birthday celebrations should be able to feel warm, family-oriented and appropriate for children.
+
+Professional events should feel polished and contemporary while remaining naturally suited to the Indian business environment.
+
+The cultural identity of the place should feel present through the visuals and atmosphere rather than through forced explanations.
+
+---
+
+# 11. One Brand, Multiple Experiences
+
+Although the public website, guest portal, chef portal and admin portal have different purposes, they belong to the same product.
+
+They should therefore share a coherent design system.
+
+However, each experience should be optimized for its users.
+
+### Public
+
+Cinematic, editorial, immersive and emotional.
+
+### Guest
+
+Simple, clear, comfortable and hospitality-focused.
+
+### Chef
+
+Fast, operational and action-oriented.
+
+### Admin
+
+Information-rich, structured and decision-oriented.
+
+The same underlying brand should connect all of them.
+
+---
+
+# 12. The Product Should Feel Alive
+
+This should be treated as an interactive product rather than a static collection of pages.
+
+Interactions should feel deliberate.
+
+Examples of the kind of experience we want include:
+
+- cinematic scroll progression
+- smooth section transitions
+- image reveals
+- depth and parallax
+- elegant hover states
+- contextual navigation
+- animated typography
+- meaningful loading transitions
+- interactive event exploration
+- smooth booking flows
+- responsive feedback after actions
+
+The exact techniques should be chosen according to what creates the strongest experience.
+
+---
+
+# 13. Mobile Is Part of the Vision
+
+The experience must be designed intentionally for mobile.
+
+Mobile should not be treated as a reduced desktop version.
+
+The cinematic storytelling, typography, navigation, interactions and content hierarchy should all be thoughtfully adapted to smaller screens.
+
+The goal is for the experience to remain beautiful and usable regardless of device.
+
+---
+
+# 14. The Functional Vision
+
+The visual experience is only one part of the product.
+
+Behind it should eventually exist a real operational system.
+
+The long-term platform should connect:
+
+**Visitor**
+→ discovers Amrit Palace
+
+**Guest**
+→ books a stay
+
+**Guest**
+→ orders food
+
+**Chef**
+→ receives and prepares the order
+
+**Guest**
+→ sees the order progress
+
+**Charges**
+→ accumulate against the guest's stay
+
+**Guest**
+→ reviews the combined bill
+
+**Guest**
+→ completes payment
+
+At the same time:
+
+**Admin**
+→ manages rooms, bookings, guests, orders, events, payments and inventory
+
+**Chef**
+→ records ingredient consumption
+
+**Inventory**
+→ updates from operational activity
+
+**Admin**
+→ can inspect inventory history and operational information
+
+This connection between beautiful frontend experience and real operational functionality is a fundamental part of the product vision.
+
+---
+
+# 15. Learning Through Building
+
+This project is also an opportunity to build genuine full-stack capability.
+
+The implementation should provide a path to understand and work with:
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- frontend architecture
+- Node.js
+- Express
+- APIs
+- authentication
+- OTP flows
+- PostgreSQL
+- Prisma
+- database relationships
+- role-based access control
+- payment integration
+- Razorpay
+- webhooks
+- backend validation
+- state management
+- operational workflows
+
+The objective is not simply to produce a finished interface.
+
+The project should be built in a way that makes the underlying system understandable and maintainable.
+
+---
+
+# 16. Prototype First, Production Later
+
+The first major milestone is a polished, functional demonstration of the core experience.
+
+The prototype should prove the most important workflows:
+
+1. Visitor discovers Amrit Palace.
+2. Visitor explores a room.
+3. Visitor creates a guest account.
+4. Guest makes a room booking.
+5. Guest explores the food menu.
+6. Guest places a food order.
+7. Chef receives the order.
+8. Chef progresses the order through its workflow.
+9. Guest sees the updated order status.
+10. Room and food charges contribute to the guest bill.
+11. Guest reaches checkout.
+12. Razorpay test payment demonstrates the payment flow.
+13. Admin manages relevant inventory.
+14. Chef records ingredient consumption.
+15. Inventory history reflects operational activity.
+
+These workflows should feel real enough to demonstrate the concept convincingly.
+
+The platform can then evolve toward production-grade functionality after the core concept has been validated.
+
+---
+
+# 17. Quality Bar
+
+The quality target is not:
+
+> "A website that works."
+
+The target is:
+
+> **A digital experience that feels deliberately designed, technically thoughtful and worthy of representing Amrit Palace.**
+
+Every major decision should consider:
+
+- Does this improve the experience?
+- Does this feel intentional?
+- Does this communicate the brand?
+- Does this make the product easier to use?
+- Does this feel believable for the real business?
+- Does the implementation remain maintainable?
+- Is there a more elegant solution?
+
+Use engineering judgment and design judgment together.
+
+When there are multiple viable approaches, choose the approach that produces the strongest overall experience while maintaining sound engineering.
+
+---
+
+# 18. Creative Freedom
+
+This document defines the destination, not every road that leads there.
+
+The implementation should use professional creative and engineering judgment.
+
+Explore strong solutions.
+
+Experiment with composition, motion, interaction, typography, spatial relationships and technology when they serve the experience.
+
+The goal is not to mechanically follow a predetermined template.
+
+The goal is to understand the intention behind the product and then build the best possible expression of that intention.
+
+---
+
+# 19. The North Star
+
+Everything ultimately comes back to one idea:
+
+> **AMRIT PALACE**
+>
+> **A PLACE FOR EVERY OCCASION**
+
+A guest can stay here.
+
+A family can celebrate here.
+
+A child can have a birthday here.
+
+A couple can get married here.
+
+Friends can gather here.
+
+People can dine here.
+
+Professionals can meet here.
+
+Different people arrive for different reasons.
+
+They all share the same place.
+
+That is what the digital experience should make people feel.
