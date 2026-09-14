@@ -31,7 +31,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-white text-neutral-900 selection:bg-amber-500/30 selection:text-amber-950 font-['Plus_Jakarta_Sans',sans-serif] antialiased overflow-x-hidden">
+    <div className="relative min-h-screen bg-white text-neutral-900 selection:bg-amber-500/30 selection:text-amber-950 font-['Plus_Jakarta_Sans',sans-serif] antialiased overflow-x-clip">
       {/* Demo Platform Role Switcher (Preserving Connected Hotel Ecosystem) */}
       <RoleSwitcher
         currentRole={currentRole}
