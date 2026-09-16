@@ -13,6 +13,10 @@ export const FooterHero: React.FC<FooterHeroProps> = ({ onOpenBooking }) => {
           src="/images/brand-reveal-real.jpg"
           alt="Amrit Palace evening brand atmosphere"
           className="w-full h-full object-cover object-center opacity-30 scale-105"
+          loading="lazy"
+          decoding="async"
+          width={1920}
+          height={1080}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/80 to-neutral-950/90" />
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useReducedMotion } from '../../motion';
 
 const SERVICES = [
   'Wedding',
@@ -47,7 +48,7 @@ function lerpColor(c1: RGB, c2: RGB, t: number): RGB {
  * - 0.35 -> 0.70: Radiant Imperial Gold (Amrit signature)
  * - 0.70 -> 1.0: Warm Sunset Twilight Amber & Dusk Gold
  */
-export function getGradientColorAt(progress: number): {
+function getGradientColorAt(progress: number): {
   primary: RGB;
   secondary: RGB;
   glow: string;
@@ -87,22 +88,13 @@ export const KineticServices: React.FC = () => {
   const [phase, setPhase] = useState<'enter' | 'hold' | 'travel' | 'exit'>('enter');
   const [activeCharIndex, setActiveCharIndex] = useState<number>(-1);
   const [strokeProgress, setStrokeProgress] = useState<number>(0);
-  const [isReducedMotion, setIsReducedMotion] = useState(false);
+  const isReducedMotion = useReducedMotion();
 
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animFrameRef = useRef<number | null>(null);
-
-  // Check for prefers-reduced-motion
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setIsReducedMotion(mediaQuery.matches);
-    const handler = (e: MediaQueryListEvent) => setIsReducedMotion(e.matches);
-    mediaQuery.addEventListener('change', handler);
-    return () => mediaQuery.removeEventListener('change', handler);
-  }, []);
 
   const currentService = SERVICES[currentIndex];
 
@@ -118,8 +110,6 @@ export const KineticServices: React.FC = () => {
     let timeoutId: ReturnType<typeof setTimeout>;
 
     if (phase === 'enter') {
-      setActiveCharIndex(-1);
-      setStrokeProgress(0);
       particlesRef.current = [];
       // Hold for 0.7s during reveal, then go to 'hold'
       timeoutId = setTimeout(() => {
@@ -246,6 +236,8 @@ export const KineticServices: React.FC = () => {
       animFrameRef.current = requestAnimationFrame(animateTravel);
     } else if (phase === 'exit') {
       timeoutId = setTimeout(() => {
+        setActiveCharIndex(-1);
+        setStrokeProgress(0);
         setCurrentIndex((prev) => (prev + 1) % SERVICES.length);
         setPhase('enter');
       }, 500);
@@ -257,7 +249,7 @@ export const KineticServices: React.FC = () => {
         cancelAnimationFrame(animFrameRef.current);
       }
     };
-  }, [phase, currentIndex, isReducedMotion]);
+  }, [phase, currentIndex, currentService.length, isReducedMotion]);
 
   // Particle Canvas Render Loop
   useEffect(() => {

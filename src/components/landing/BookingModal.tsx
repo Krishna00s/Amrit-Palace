@@ -19,9 +19,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [notes, setNotes] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
-  useEffect(() => {
+  const [prevDefaultOccasion, setPrevDefaultOccasion] = useState(defaultOccasion);
+  if (prevDefaultOccasion !== defaultOccasion) {
+    setPrevDefaultOccasion(defaultOccasion);
     setOccasion(defaultOccasion);
-  }, [defaultOccasion]);
+  }
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

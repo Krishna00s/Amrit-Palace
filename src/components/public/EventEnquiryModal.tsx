@@ -20,7 +20,7 @@ export const EventEnquiryModal: React.FC<EventEnquiryModalProps> = ({
   const [contactName, setContactName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [preferredDate, setPreferredDate] = useState(
+  const [preferredDate, setPreferredDate] = useState(() =>
     new Date(Date.now() + 30 * 86400000).toISOString().split('T')[0]
   );
   const [guestCount, setGuestCount] = useState(250);

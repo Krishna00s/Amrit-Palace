@@ -1,39 +1,73 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { KineticServices } from './KineticServices';
+import { scrollTo } from '../../motion';
 
 interface HeroProps {
   onOpenBooking?: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const bgLayerRef = useRef<HTMLDivElement>(null);
+  const wordmarkLayerRef = useRef<HTMLDivElement>(null);
+  const fgLayerRef = useRef<HTMLDivElement>(null);
+  const contentGroupRef = useRef<HTMLDivElement>(null);
+  const bottomGroupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+    let ticking = false;
+
+    const updateHeroMotion = () => {
+      const y = window.scrollY;
+      // Only process when Hero is on or near screen
+      if (y <= 1200) {
+        if (bgLayerRef.current) {
+          bgLayerRef.current.style.transform = `translateY(${(y * 0.18).toFixed(2)}px)`;
+        }
+        if (wordmarkLayerRef.current) {
+          wordmarkLayerRef.current.style.transform = `translateY(${(y * 0.12).toFixed(2)}px)`;
+        }
+        if (fgLayerRef.current) {
+          fgLayerRef.current.style.transform = `translateY(${(y * 0.18).toFixed(2)}px)`;
+        }
+        if (contentGroupRef.current) {
+          const opacity = Math.max(0, 1 - y / 480);
+          contentGroupRef.current.style.opacity = opacity.toFixed(3);
+          contentGroupRef.current.style.transform = `translateY(${(y * 0.14).toFixed(2)}px)`;
+        }
+        if (bottomGroupRef.current) {
+          const opacity = Math.max(0, 1 - y / 300);
+          bottomGroupRef.current.style.opacity = opacity.toFixed(3);
+        }
+      }
+      ticking = false;
     };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeroMotion);
+        ticking = true;
+      }
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
+    updateHeroMotion();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleScrollToServices = (e: React.MouseEvent) => {
     e.preventDefault();
-    const target =
-      document.querySelector('#services') ||
-      document.querySelector('#spaces') ||
-      document.querySelector('#stay');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollTo('#spaces');
   };
 
   return (
-    <section className="relative w-full h-screen min-h-[700px] max-h-[1080px] flex flex-col justify-between overflow-hidden bg-neutral-950 select-none">
+    <section id="home" className="relative w-full h-screen min-h-[700px] max-h-[1080px] flex flex-col justify-between overflow-hidden bg-neutral-950 select-none">
       {/* 1. Real Amrit Palace Dusk Photograph Base Layer with Atmospheric Vignettes */}
       <div
+        ref={bgLayerRef}
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          transform: `translateY(${scrollY * 0.18}px)`,
+          transform: 'translateY(0px)',
           willChange: 'transform',
         }}
       >
@@ -41,6 +75,11 @@ export const Hero: React.FC<HeroProps> = () => {
           src="/images/hero-amrit-exterior.jpg"
           alt="Hotel Amrit Palace illuminated dusk exterior in Lohardaga, Jharkhand"
           className="w-full h-full object-cover object-[76%_center] lg:object-[74%_center]"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          width={1024}
+          height={576}
         />
         {/* Subtle atmospheric vignette at the bottom and top edge only — preserves natural blue-hour sky */}
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(4,9,18,0.35)_0%,transparent_14%)] pointer-events-none" />
@@ -49,9 +88,10 @@ export const Hero: React.FC<HeroProps> = () => {
 
       {/* 2. Architectural Wordmark Layer: AMRIT in back, PALACE in front overlapping 2-5% on bottom */}
       <div
+        ref={wordmarkLayerRef}
         className="absolute inset-0 pointer-events-none select-none overflow-hidden hidden md:block"
         style={{
-          transform: `translateY(${scrollY * 0.12}px)`,
+          transform: 'translateY(0px)',
           willChange: 'transform',
         }}
       >
@@ -72,29 +112,36 @@ export const Hero: React.FC<HeroProps> = () => {
 
       {/* 3. Physical Architecture Foreground Occlusion Layer (Real buildings in front of typography) */}
       <div
+        ref={fgLayerRef}
         className="absolute inset-0 z-12 pointer-events-none hidden md:block"
         style={{
-          transform: `translateY(${scrollY * 0.18}px)`,
+          transform: 'translateY(0px)',
           willChange: 'transform',
         }}
       >
         <img
-          src="/images/hero-buildings-foreground.png"
+          src="/images/hero-buildings-foreground.webp"
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover object-[76%_center] lg:object-[74%_center]"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          width={1024}
+          height={576}
         />
       </div>
 
       {/* Spacer to push content down below fixed header */}
       <div className="pt-24 sm:pt-28" />
 
-      {/* 3. Primary Editorial Content Group — Sits comfortably in Lower-Left region */}
+      {/* 3. Primary Editorial Content Group & Repositioned Kinetic Ticker */}
       <div
-        className="relative z-20 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 mt-auto mb-5 sm:mb-7 md:mb-8 flex flex-col justify-end"
+        ref={contentGroupRef}
+        className="relative z-20 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 mt-auto mb-4 sm:mb-6 md:mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6"
         style={{
-          opacity: Math.max(0, 1 - scrollY / 480),
-          transform: `translateY(${scrollY * 0.14}px)`,
+          opacity: 1,
+          transform: 'translateY(0px)',
           willChange: 'transform, opacity',
         }}
       >
@@ -114,19 +161,22 @@ export const Hero: React.FC<HeroProps> = () => {
           <div className="text-xs sm:text-sm font-normal text-neutral-300 tracking-wide">
             Stay <span className="mx-2 sm:mx-2.5 text-neutral-500">•</span> Dine <span className="mx-2 sm:mx-2.5 text-neutral-500">•</span> Celebrate <span className="mx-2 sm:mx-2.5 text-neutral-500">•</span> Meet
           </div>
+        </div>
 
-          {/* Kinetic Services Typography Showcase */}
-          <div className="mt-4 sm:mt-5 min-h-[44px] sm:min-h-[50px] flex items-center">
-            <KineticServices />
-          </div>
+        {/* Repositioned Kinetic Services Ticker:
+            Noticeably further to the RIGHT, slightly further DOWN into the negative space,
+            with comfortable breathing room around it, balanced across all viewports */}
+        <div className="min-h-[48px] sm:min-h-[52px] flex items-center lg:mb-1.5 xl:mb-2 lg:mr-8 xl:mr-16">
+          <KineticServices />
         </div>
       </div>
 
       {/* 4. Balanced Bottom Details: Left Anchor + Lower-Right CTA & Micro-Copy */}
       <div
+        ref={bottomGroupRef}
         className="relative z-20 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 pb-8 sm:pb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6"
         style={{
-          opacity: Math.max(0, 1 - scrollY / 300),
+          opacity: 1,
           willChange: 'opacity',
         }}
       >

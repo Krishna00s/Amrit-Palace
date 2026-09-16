@@ -97,6 +97,10 @@ export const FAQ: React.FC = () => {
               src="/images/lobby-lounge-real.jpg"
               alt="Atmospheric hospitality at Amrit Palace"
               className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+              width={1920}
+              height={1080}
             />
           </div>
         </div>

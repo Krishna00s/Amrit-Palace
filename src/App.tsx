@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { UserRole } from './types';
 import { dataStore } from './services/dataStore';
+import { initSmoothScroll, destroySmoothScroll, stopSmoothScroll, startSmoothScroll, prefetchNearFoldAssets } from './motion';
 import { RoleSwitcher } from './components/common/RoleSwitcher';
 import { Header } from './components/landing/Header';
 import { Hero } from './components/landing/Hero';
@@ -20,6 +21,24 @@ const App: React.FC = () => {
   const [currentRole, setCurrentRole] = useState<UserRole>(() => dataStore.getActiveRole());
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [selectedOccasion, setSelectedOccasion] = useState('AC Room Stay');
+
+  // Initialize Lenis smooth scrolling coupled to GSAP ticker and prefetch near-fold assets
+  useEffect(() => {
+    initSmoothScroll();
+    prefetchNearFoldAssets();
+    return () => {
+      destroySmoothScroll();
+    };
+  }, []);
+
+  // Pause smooth scrolling when booking modal is active
+  useEffect(() => {
+    if (bookingModalOpen) {
+      stopSmoothScroll();
+    } else {
+      startSmoothScroll();
+    }
+  }, [bookingModalOpen]);
 
   const handleOpenBooking = (occasion = 'AC Room Stay') => {
     setSelectedOccasion(occasion);

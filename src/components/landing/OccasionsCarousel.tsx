@@ -5,7 +5,9 @@ interface OccasionCard {
   title: string;
   location: string;
   categoryTag: string;
-  image: string;
+  mobileImage: string;
+  desktopImage: string;
+  fallbackImage: string;
   description: string;
 }
 
@@ -19,7 +21,9 @@ const OCCASIONS: OccasionCard[] = [
     title: 'Comfortable AC Guest Rooms',
     location: 'Main Road, Lohardaga',
     categoryTag: 'Master Bed & AC',
-    image: '/images/room-ac-real.jpg',
+    mobileImage: '/images/experiences/stay-mobile.webp',
+    desktopImage: '/images/experiences/stay-desktop.webp',
+    fallbackImage: '/images/room-ac-real.jpg',
     description: 'Clean, peaceful accommodation with king master bed, powerful air conditioning, and convenient transit access.',
   },
   {
@@ -27,7 +31,9 @@ const OCCASIONS: OccasionCard[] = [
     title: 'Royal Weddings & Receptions',
     location: 'Grand Ballroom & Lawns',
     categoryTag: '500+ Car Parking',
-    image: '/images/wedding-real.jpg',
+    mobileImage: '/images/experiences/wedding-mobile.webp',
+    desktopImage: '/images/experiences/wedding-desktop.webp',
+    fallbackImage: '/images/wedding-real.jpg',
     description: 'Spacious celebration venues, mandap setups, and banquet halls with vast parking so every guest arrives with ease.',
   },
   {
@@ -35,7 +41,9 @@ const OCCASIONS: OccasionCard[] = [
     title: 'Multi-Cuisine Family Dining',
     location: 'Amrit Dining Restaurant',
     categoryTag: 'Fresh Delicacies',
-    image: '/images/dining-ballroom-real.jpg',
+    mobileImage: '/images/experiences/dining-mobile.webp',
+    desktopImage: '/images/experiences/dining-desktop.webp',
+    fallbackImage: '/images/dining-ballroom-real.jpg',
     description: 'Fresh North Indian dishes, tandoori specialties, and celebration buffets prepared with genuine warmth.',
   },
   {
@@ -43,7 +51,9 @@ const OCCASIONS: OccasionCard[] = [
     title: 'Joyful Birthdays & Milestones',
     location: 'Celebration Lounge',
     categoryTag: 'Family Gatherings',
-    image: '/images/birthday-real.jpg',
+    mobileImage: '/images/experiences/birthday-mobile.webp',
+    desktopImage: '/images/experiences/birthday-desktop.webp',
+    fallbackImage: '/images/birthday-real.jpg',
     description: 'Festive decorations, balloon arches, music setup, and delicious food tailored for children and family anniversaries.',
   },
   {
@@ -51,7 +61,9 @@ const OCCASIONS: OccasionCard[] = [
     title: 'Business Conferences & Meets',
     location: 'Executive Conference Room',
     categoryTag: 'AV & Power Backup',
-    image: '/images/meeting-conference-real.jpg',
+    mobileImage: '/images/experiences/meetings-mobile.webp',
+    desktopImage: '/images/experiences/meetings-desktop.webp',
+    fallbackImage: '/images/meeting-conference-real.jpg',
     description: 'Quiet, air-conditioned professional meeting space with presentation screens, reliable power backup, and catering.',
   },
 ];
@@ -119,11 +131,26 @@ export const OccasionsCarousel: React.FC<OccasionsCarouselProps> = ({ onOpenBook
             >
               {/* Rounded Image Container */}
               <div className="relative h-[220px] sm:h-[240px] rounded-2xl overflow-hidden mb-3.5 shadow-sm group-hover:shadow-md transition-shadow">
-                <img
-                  src={occasion.image}
-                  alt={occasion.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    srcSet={occasion.mobileImage}
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet={occasion.desktopImage}
+                  />
+                  <img
+                    src={occasion.fallbackImage}
+                    alt={occasion.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    width={640}
+                    height={480}
+                  />
+                </picture>
                 <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-amber-300 border border-white/10">
                   {occasion.categoryTag}
                 </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { scrollTo } from '../../motion';
 
 interface HeaderProps {
   onOpenBooking: () => void;
@@ -9,14 +10,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 30);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
+    { name: 'Home', href: '#home' },
     { name: 'Stay', href: '#stay' },
     { name: 'Dine', href: '#dine' },
     { name: 'Celebrate', href: '#celebrate' },
@@ -28,10 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollTo(href);
   };
 
   return (
@@ -45,7 +52,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
       <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between">
         {/* Brand Logo / Wordmark (matching reference Image 1) */}
         <a
-          href="#"
+          href="#home"
+          onClick={(e) => handleNavClick(e, '#home')}
           className="flex items-center gap-3 text-white group focus:outline-none"
         >
           <div className="w-9 h-9 rounded-full bg-[#F8BD5C] flex items-center justify-center text-neutral-950 font-black text-xs tracking-tight shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform shrink-0">

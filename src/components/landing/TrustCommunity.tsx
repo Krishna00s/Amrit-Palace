@@ -80,6 +80,10 @@ export const TrustCommunity: React.FC<TrustCommunityProps> = ({ onOpenBooking })
               src="/images/entrance-facade-real.jpg"
               alt="Amrit Palace entrance facade and parking"
               className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+              width={1920}
+              height={1080}
             />
           </div>
 
@@ -89,6 +93,10 @@ export const TrustCommunity: React.FC<TrustCommunityProps> = ({ onOpenBooking })
               src="/images/wedding-real.jpg"
               alt="Real Indian wedding celebration at Amrit Palace"
               className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+              width={1920}
+              height={1080}
             />
           </div>
 
@@ -132,6 +140,10 @@ export const TrustCommunity: React.FC<TrustCommunityProps> = ({ onOpenBooking })
               src="/images/birthday-real.jpg"
               alt="Birthday celebration at Amrit Palace"
               className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+              width={1920}
+              height={1080}
             />
           </div>
 
@@ -141,6 +153,10 @@ export const TrustCommunity: React.FC<TrustCommunityProps> = ({ onOpenBooking })
               src="/images/lobby-lounge-real.jpg"
               alt="Grand lobby lounge of Amrit Palace"
               className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+              width={1920}
+              height={1080}
             />
           </div>
         </div>
