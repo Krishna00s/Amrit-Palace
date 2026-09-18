@@ -8,11 +8,11 @@ interface FAQItem {
 const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'How do I reserve an AC guest room at Amrit Palace?',
-    answer: 'You can reserve directly by clicking "Book Your Stay" on this page or contacting our front desk at +91 94311 00000. We feature comfortable AC rooms equipped with king master beds, clean linens, and attached modern bathrooms.',
+    answer: 'You can reserve directly by clicking "Book Your Stay" on this page or contacting our front desk at +91 94311 02938. We feature comfortable AC rooms equipped with king master beds, clean linens, and attached modern bathrooms.',
   },
   {
     question: 'Can we host large weddings, receptions, and family ceremonies here?',
-    answer: 'Yes! Amrit Palace offers spacious celebration halls and banquet areas capable of accommodating up to 1,000 guests, complete with customizable decor, stage lighting, and full catering support for marriages, sangeet, and tilak ceremonies.',
+    answer: 'Yes! Amrit Palace offers spacious celebration halls and banquet areas capable of accommodating 500+ people, complete with customizable decor, stage lighting, and full catering support for marriages, sangeet, and tilak ceremonies.',
   },
   {
     question: 'What dining options and catering menus are available?',
@@ -20,7 +20,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: 'Is there sufficient parking space for our event guests?',
-    answer: 'Yes, Amrit Palace provides a very generous on-premises parking area capable of comfortably accommodating 500+ vehicles, ensuring your relatives and guests experience zero parking hassle.',
+    answer: 'Yes, Amrit Palace provides dedicated on-premises parking spaces for 20+ vehicles, ensuring your relatives and guests experience hassle-free parking.',
   },
   {
     question: 'Can we host corporate meetings and business conferences?',

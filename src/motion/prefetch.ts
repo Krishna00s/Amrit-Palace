@@ -15,12 +15,16 @@ export function prefetchNearFoldAssets(): void {
         '/images/experiences/meetings-mobile.webp',
         '/images/experiences/stay-mobile.webp',
         '/images/experiences/dining-mobile.webp',
+        '/images/experiences/event-space-mobile.webp',
+        '/images/experiences/food-dining-mobile.webp',
       ]
     : [
         '/images/experiences/wedding-desktop.webp',
         '/images/experiences/meetings-desktop.webp',
         '/images/experiences/stay-desktop.webp',
         '/images/experiences/dining-desktop.webp',
+        '/images/experiences/event-space-desktop.webp',
+        '/images/experiences/food-dining-desktop.webp',
       ];
 
   const prefetch = () => {

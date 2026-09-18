@@ -58,3 +58,44 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Reviews Carousel Auto-Progress and Editorial Fade */
+@keyframes progressBarFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.progress-bar-fill {
+  animation: progressBarFill 6s linear forwards;
+}
+
+@keyframes reviewFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-review-fade-in {
+  animation: reviewFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar-fill {
+    animation: none !important;
+    width: 100% !important;
+  }
+  .animate-review-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

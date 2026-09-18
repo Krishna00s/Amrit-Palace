@@ -30,11 +30,11 @@ const OCCASIONS: OccasionCard[] = [
     id: 'wedding-gala',
     title: 'Royal Weddings & Receptions',
     location: 'Grand Ballroom & Lawns',
-    categoryTag: '500+ Car Parking',
+    categoryTag: '20+ Car Parking',
     mobileImage: '/images/experiences/wedding-mobile.webp',
     desktopImage: '/images/experiences/wedding-desktop.webp',
     fallbackImage: '/images/wedding-real.jpg',
-    description: 'Spacious celebration venues, mandap setups, and banquet halls with vast parking so every guest arrives with ease.',
+    description: 'Spacious celebration venues, mandap setups, and banquet halls with dedicated on-site parking so every guest arrives with ease.',
   },
   {
     id: 'family-dining',

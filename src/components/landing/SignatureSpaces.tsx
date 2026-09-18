@@ -105,7 +105,7 @@ const EXPERIENCES: ExperienceItem[] = [
     mobileImage: '/images/experiences/event-space-mobile.webp',
     fallbackImage: '/images/banquet-ballroom-real.jpg',
     alt: 'Grand Royal Ballroom at Amrit Palace illuminated with crystal chandeliers',
-    badge: 'Up to 1,000 Guests · Vast Parking',
+    badge: 'Up to 500+ People · 20+ Parking Spaces',
     defaultOccasion: 'Grand Event / Banquet',
     loading: 'lazy',
   },
@@ -187,9 +187,9 @@ export const SignatureSpaces: React.FC<SignatureSpacesProps> = ({ onOpenBooking 
               ease: 'power3.out',
               scrollTrigger: {
                 trigger: card,
-                start: 'top 90%',
-                end: 'top 52%',
-                scrub: 0.5,
+                start: 'top 88%',
+                once: true,
+                toggleActions: 'play none none none',
               },
             }
           );
@@ -221,7 +221,8 @@ export const SignatureSpaces: React.FC<SignatureSpacesProps> = ({ onOpenBooking 
               scrollTrigger: {
                 trigger: card,
                 start: 'top 88%',
-                toggleActions: 'play none none reverse',
+                once: true,
+                toggleActions: 'play none none none',
               },
             }
           );

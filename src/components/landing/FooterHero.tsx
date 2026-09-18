@@ -63,8 +63,8 @@ export const FooterHero: React.FC<FooterHeroProps> = ({ onOpenBooking }) => {
             <span>Lohardaga, Jharkhand 835302, India</span>
             <span className="mt-2 text-neutral-300">
               Phone:{' '}
-              <a href="tel:+919431100000" className="hover:text-amber-400 transition-colors">
-                +91 94311 00000
+              <a href="tel:+919431102938" className="hover:text-amber-400 transition-colors">
+                +91 94311 02938
               </a>
             </span>
             <span>
