@@ -4,11 +4,11 @@ import { TESTIMONIALS, TESTIMONIAL_CATEGORIES, type Testimonial } from '../../da
 export const Testimonials: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isManuallyPaused, setIsManuallyPaused] = useState<boolean>(false);
   const [resetToken, setResetToken] = useState<number>(0);
 
-  const isPaused = isHovered || isManuallyPaused;
+  // Auto-cycle continues uninterrupted during hover; only manual button pauses it
+  const isPaused = isManuallyPaused;
 
   // Filter reviews by selected category
   const filteredReviews = useMemo(() => {
@@ -19,7 +19,7 @@ export const Testimonials: React.FC = () => {
   // Ensure index stays in bounds if category changes
   const activeReview: Testimonial = filteredReviews[currentIndex] || filteredReviews[0] || TESTIMONIALS[0];
 
-  // 6-second auto-rotation with pause on hover/touch and reset on manual change
+  // 6-second auto-rotation (uninterrupted by hover) with reset on manual change
   useEffect(() => {
     if (isPaused || filteredReviews.length <= 1) return;
 
@@ -68,12 +68,6 @@ export const Testimonials: React.FC = () => {
       id="reviews"
       aria-label="Guest Reviews and Reputation"
       className="w-full bg-white text-neutral-900 py-16 md:py-24 select-none border-t border-neutral-100 relative overflow-hidden"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onTouchStart={() => setIsHovered(true)}
-      onTouchEnd={() => setIsHovered(false)}
-      onFocus={() => setIsHovered(true)}
-      onBlur={() => setIsHovered(false)}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
@@ -187,7 +181,7 @@ export const Testimonials: React.FC = () => {
                   <span className={`w-2 h-2 rounded-full ${isPaused ? 'bg-amber-500' : 'bg-emerald-500 animate-pulse'}`} />
                   <span>{isPaused ? 'Paused' : '6s Auto-Cycle'}</span>
                   <span className="text-[10px] text-neutral-400">
-                    {isManuallyPaused ? '(Click to Play)' : isHovered ? '(Hovering)' : ''}
+                    {isManuallyPaused ? '(Click to Play)' : ''}
                   </span>
                 </button>
               </div>
