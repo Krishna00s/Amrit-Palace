@@ -45,11 +45,26 @@ export const FooterHero: React.FC<FooterHeroProps> = ({ onOpenBooking }) => {
           </button>
         </div>
 
-        {/* Giant Watermark Typography (exact StayGo footer brand mark) */}
-        <div className="w-full text-center my-8 sm:my-12 overflow-hidden select-none pointer-events-none">
-          <span className="text-[12vw] sm:text-[13vw] font-black tracking-tighter uppercase text-white/[0.12] leading-none whitespace-nowrap block font-['Plus_Jakarta_Sans',sans-serif]">
-            AMRIT PALACE
-          </span>
+        {/* Giant Watermark Typography (responsive SVG brand mark, fully visible on all screen sizes) */}
+        <div className="w-full my-8 sm:my-14 overflow-hidden select-none pointer-events-none flex justify-center items-center">
+          <svg
+            viewBox="0 0 920 100"
+            className="w-full max-w-full h-auto select-none pointer-events-none"
+            aria-hidden="true"
+          >
+            <text
+              x="460"
+              y="54"
+              dominantBaseline="central"
+              textAnchor="middle"
+              className="font-black uppercase fill-white/[0.12] font-['Plus_Jakarta_Sans',sans-serif]"
+              fontSize="118"
+              fontWeight="900"
+              letterSpacing="-0.035em"
+            >
+              AMRIT PALACE
+            </text>
+          </svg>
         </div>
 
         {/* Footer Details: Address, Contact & Social Links (exact StayGo layout) */}

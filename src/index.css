@@ -49,6 +49,46 @@
   }
 }
 
+/* ==========================================================================
+   Luxury Decorated Scrollbar for Amrit Palace
+   ========================================================================== */
+
+/* Standard CSS (Firefox 64+) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d97706 #08090d;
+}
+
+/* WebKit & Blink Browsers (Chrome, Edge, Safari, Brave, Opera) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08090d;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 50%, #92400e 100%);
+  border-radius: 9999px;
+  border: 2px solid #08090d;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 50%, #b45309 100%);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #fcd34d 0%, #f59e0b 50%, #d97706 100%);
+}
+
+::-webkit-scrollbar-corner {
+  background: #08090d;
+}
 
 /* Utility to hide scrollbars on horizontal carousels */
 .no-scrollbar::-webkit-scrollbar {
