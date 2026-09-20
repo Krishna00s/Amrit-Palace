@@ -40,7 +40,7 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="w-full bg-white text-neutral-900 py-16 md:py-24 select-none border-t border-neutral-100">
+    <section id="faq" className="w-full bg-transparent text-neutral-900 py-16 md:py-24 select-none border-t border-black/[0.04] atmosphere-tint-faq">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left Column: FAQ Accordion (matching StayGo layout) */}

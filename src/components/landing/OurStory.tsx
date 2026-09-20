@@ -50,7 +50,8 @@ export const OurStory: React.FC = () => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
       // sectionTop is the distance from document top to Our Story (equal to Hero's height)
-      const sectionTop = sectionRef.current.offsetTop;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const sectionTop = window.scrollY + rect.top;
       const scrollY = window.scrollY;
 
       if (sectionTop <= 0) {
@@ -98,7 +99,7 @@ export const OurStory: React.FC = () => {
     <section
       id="story"
       ref={sectionRef}
-      className="relative z-20 bg-white text-neutral-900 py-16 sm:py-20 md:py-24 lg:py-28 select-none border-t border-neutral-100 shadow-[0_-25px_50px_rgba(0,0,0,0.18)]"
+      className="relative z-20 bg-transparent text-neutral-900 py-16 sm:py-20 md:py-24 lg:py-28 select-none border-t border-black/[0.04] shadow-[0_-25px_50px_rgba(0,0,0,0.18)] atmosphere-tint-story"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">

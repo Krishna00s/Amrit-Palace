@@ -67,7 +67,7 @@ export const Testimonials: React.FC = () => {
     <section
       id="reviews"
       aria-label="Guest Reviews and Reputation"
-      className="w-full bg-white text-neutral-900 py-16 md:py-24 select-none border-t border-neutral-100 relative overflow-hidden"
+      className="w-full bg-transparent text-neutral-900 py-16 md:py-24 select-none border-t border-black/[0.04] relative overflow-hidden atmosphere-tint-reviews"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">

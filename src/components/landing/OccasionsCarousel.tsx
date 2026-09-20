@@ -69,9 +69,9 @@ const OCCASIONS: OccasionCard[] = [
   },
 ];
 
-// Extended dataset to provide seamless cyclic track with neighboring peeks on both sides
-const EXTENDED_OCCASIONS = [...OCCASIONS, ...OCCASIONS, ...OCCASIONS];
-const INITIAL_INDEX = OCCASIONS.length; // 5 (Card 0 of the middle set)
+// Extended 5-set dataset (25 cards) to provide ample buffer runway and prevent index exhaustion
+const EXTENDED_OCCASIONS = [...OCCASIONS, ...OCCASIONS, ...OCCASIONS, ...OCCASIONS, ...OCCASIONS];
+const INITIAL_INDEX = OCCASIONS.length * 2; // 10 (Card 0 of the middle Set 2)
 
 export const OccasionsCarousel: React.FC<OccasionsCarouselProps> = ({ onOpenBooking }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -81,6 +81,18 @@ export const OccasionsCarousel: React.FC<OccasionsCarouselProps> = ({ onOpenBook
   const [viewportWidth, setViewportWidth] = useState<number>(1216);
   const [currentIndex, setCurrentIndex] = useState<number>(INITIAL_INDEX);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+  const isTransitioningRef = useRef<boolean>(false);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+
+  // Preload and pre-decode all unique carousel images into memory
+  useEffect(() => {
+    OCCASIONS.forEach((occ) => {
+      const img = new Image();
+      img.src = occ.desktopImage;
+      const mImg = new Image();
+      mImg.src = occ.mobileImage;
+    });
+  }, []);
 
   // Measure viewport container width to calibrate sub-pixel card geometry
   useEffect(() => {
@@ -195,24 +207,35 @@ export const OccasionsCarousel: React.FC<OccasionsCarouselProps> = ({ onOpenBook
     { scope: sectionRef }
   );
 
-  // Carousel Navigation: Next & Prev
+  // Carousel Navigation: Next & Prev with active transition protection
   const handleNext = useCallback(() => {
+    if (isTransitioningRef.current) return;
+    isTransitioningRef.current = true;
     setIsTransitioning(true);
     setCurrentIndex((prev) => prev + 1);
   }, []);
 
   const handlePrev = useCallback(() => {
+    if (isTransitioningRef.current) return;
+    isTransitioningRef.current = true;
     setIsTransitioning(true);
     setCurrentIndex((prev) => prev - 1);
   }, []);
 
   // Normalize index on transition end to preserve infinite cyclic navigation
   const handleTransitionEnd = () => {
-    if (currentIndex >= OCCASIONS.length * 2 || currentIndex < OCCASIONS.length) {
+    const minMiddle = OCCASIONS.length * 2; // 10
+    const maxMiddle = OCCASIONS.length * 3; // 15
+    if (currentIndex >= maxMiddle || currentIndex < minMiddle) {
       setIsTransitioning(false);
-      const normalized = ((currentIndex % OCCASIONS.length) + OCCASIONS.length) % OCCASIONS.length + OCCASIONS.length;
+      const normalized = ((currentIndex % OCCASIONS.length) + OCCASIONS.length) % OCCASIONS.length + minMiddle;
       setCurrentIndex(normalized);
+      // Force instant reflow on track to ensure zero-transition snap is painted before accepting new clicks
+      if (trackRef.current) {
+        void trackRef.current.offsetHeight;
+      }
     }
+    isTransitioningRef.current = false;
   };
 
   // Touch Swipe Support for Mobile & Tablet
@@ -245,7 +268,7 @@ export const OccasionsCarousel: React.FC<OccasionsCarouselProps> = ({ onOpenBook
       id="celebrate"
       ref={sectionRef}
       aria-label="Curated Spaces for Every Occasion"
-      className="w-full bg-white text-neutral-900 pb-16 md:pb-24 select-none relative overflow-hidden"
+      className="w-full bg-transparent text-neutral-900 pb-16 md:pb-24 select-none relative overflow-hidden atmosphere-tint-occasions"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Header with Circular < > Carousel Controls */}
@@ -295,11 +318,12 @@ export const OccasionsCarousel: React.FC<OccasionsCarouselProps> = ({ onOpenBook
         >
           {/* Cohesive Navigation Track (Translates with GPU transform; separate from vertical entrance) */}
           <div
+            ref={trackRef}
             className="flex items-stretch"
             style={{
               gap: `${config.gap}px`,
               transform: `translate3d(${trackOffset}px, 0, 0)`,
-              transition: isTransitioning ? 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)' : 'none',
+              transition: isTransitioning ? 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)' : 'none',
             }}
             onTransitionEnd={handleTransitionEnd}
           >
@@ -330,8 +354,8 @@ export const OccasionsCarousel: React.FC<OccasionsCarouselProps> = ({ onOpenBook
                         src={occasion.fallbackImage}
                         alt={occasion.title}
                         className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
-                        loading="lazy"
-                        decoding="async"
+                        loading="eager"
+                        decoding="auto"
                         width={640}
                         height={480}
                       />

@@ -67,23 +67,37 @@ const App: React.FC = () => {
             {/* Dark Cinematic Hero with Real Amrit Palace Twilight Exterior & Booking Bar */}
             <Hero onOpenBooking={() => handleOpenBooking('AC Room Stay')} />
 
-            {/* White Editorial Intro: "Our Story" with 4.8★, 500+ Reviews, 10,000+ Guests Hosted */}
-            <OurStory />
+            {/* Living Ivory Atmosphere Container (Continuous Light Editorial Surface) */}
+            <div className="relative living-ivory-atmosphere">
+              {/* Viewport-pinned Sticky Atmospheric Light Canvas */}
+              <div className="living-ivory-sticky-canvas" aria-hidden="true">
+                <div className="living-ivory-field living-ivory-field-warm" />
+                <div className="living-ivory-field living-ivory-field-cool" />
+                <div className="living-ivory-field living-ivory-field-sage" />
+                <div className="living-ivory-field living-ivory-field-cream" />
+              </div>
 
-            {/* Signature Spaces Asymmetric Grid: Grand Ballroom, AC Guest Room, Dining */}
-            <SignatureSpaces onOpenBooking={() => handleOpenBooking('Wedding & Reception')} />
+              {/* Light Editorial Journey Content */}
+              <div className="relative z-10">
+                {/* White Editorial Intro: "Our Story" with 4.8★, 500+ Reviews, 10,000+ Guests Hosted */}
+                <OurStory />
 
-            {/* Curated for Every Occasion Horizontal Carousel with < > controls */}
-            <OccasionsCarousel onOpenBooking={(occ) => handleOpenBooking(occ || 'AC Room Stay')} />
+                {/* Signature Spaces Asymmetric Grid: Grand Ballroom, AC Guest Room, Dining */}
+                <SignatureSpaces onOpenBooking={() => handleOpenBooking('Wedding & Reception')} />
 
-            {/* Trust, Accreditations & Staggered Photo Gallery with Dark Community Card */}
-            <TrustCommunity onOpenBooking={() => handleOpenBooking('Wedding & Reception')} />
+                {/* Curated for Every Occasion Horizontal Carousel with < > controls */}
+                <OccasionsCarousel onOpenBooking={(occ) => handleOpenBooking(occ || 'AC Room Stay')} />
 
-            {/* 30+ Multi-Lingual Testimonials (English, Hindi, Hinglish) across 5 Pillars */}
-            <Testimonials />
+                {/* Trust, Accreditations & Staggered Photo Gallery with Dark Community Card */}
+                <TrustCommunity onOpenBooking={() => handleOpenBooking('Wedding & Reception')} />
 
-            {/* FAQ Accordion paired with Tall Real Property Atmosphere Photo */}
-            <FAQ />
+                {/* 30+ Multi-Lingual Testimonials (English, Hindi, Hinglish) across 5 Pillars */}
+                <Testimonials />
+
+                {/* FAQ Accordion paired with Tall Real Property Atmosphere Photo */}
+                <FAQ />
+              </div>
+            </div>
 
             {/* Final Dark Brand Moment & Comprehensive Footer */}
             <FooterHero onOpenBooking={() => handleOpenBooking('AC Room Stay')} />

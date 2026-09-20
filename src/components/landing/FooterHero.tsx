@@ -6,9 +6,9 @@ interface FooterHeroProps {
 
 export const FooterHero: React.FC<FooterHeroProps> = ({ onOpenBooking }) => {
   return (
-    <footer className="relative w-full bg-neutral-950 text-white pt-24 pb-12 overflow-hidden select-none">
+    <footer className="relative z-30 w-full bg-[#0a0a0a] text-white pt-24 pb-12 overflow-hidden select-none">
       {/* Background Image: Real Amrit Palace Brand Reveal & Twilight Illumination */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/images/brand-reveal-real.jpg"
           alt="Amrit Palace evening brand atmosphere"

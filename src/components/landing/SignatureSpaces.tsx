@@ -238,7 +238,7 @@ export const SignatureSpaces: React.FC<SignatureSpacesProps> = ({ onOpenBooking 
     <section
       id="experiences"
       ref={sectionRef}
-      className="relative w-full bg-white text-neutral-900 pt-20 sm:pt-24 pb-20 sm:pb-28 select-none overflow-hidden"
+      className="relative w-full bg-transparent text-neutral-900 pt-20 sm:pt-24 pb-20 sm:pb-28 select-none overflow-hidden"
     >
       {/* Anchor targets to preserve all existing nav link compatibility */}
       <div id="spaces" className="absolute -top-24 left-0 pointer-events-none" />

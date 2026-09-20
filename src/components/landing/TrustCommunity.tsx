@@ -74,7 +74,7 @@ export const TrustCommunity: React.FC<TrustCommunityProps> = ({ onOpenBooking })
     <section
       id="meet"
       ref={sectionRef}
-      className="w-full bg-white text-neutral-900 py-16 md:py-24 select-none border-t border-neutral-100 relative"
+      className="w-full bg-transparent text-neutral-900 py-16 md:py-24 select-none border-t border-black/[0.04] relative"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col items-center text-center">
         {/* Eyebrow */}
